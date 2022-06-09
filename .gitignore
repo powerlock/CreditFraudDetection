@@ -1,1 +1,4 @@
-creditcard.csv
+Data/creditcard.csv
+.ipynb_checkpoints
+.ipynb_checkpoints/
+Data/.DS_Store
