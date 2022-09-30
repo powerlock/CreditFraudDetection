@@ -57,7 +57,12 @@ X_test_norm = scaler.fit_transform(X_test)
 
 from supervised.automl import AutoML
 automl = AutoML(algorithms=['LightGBM','Xgboost','Random Forest','Neural Network'], 
-                train_ensemble=False, explain_level=2)
+                train_ensemble=True, explain_level=2,validation_strategy={
+        "validation_type": "kfold",
+        "k_folds": 4,
+        "shuffle": False,
+        "stratify": True,
+    })
 automl.fit(X_train_norm, y_train)
 
 
