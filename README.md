@@ -24,7 +24,10 @@ In the second step, I will explore GAN simulation data as live transaction data 
     <img src = '.src/AutoML_1/2_Default_Xgboost/cumulative_gains_curve.png'alt="drawing" width="400"/>
 
 ## Use autoencoder model to do the test
-* Deep learning 
+* Deep learning with dense layer.
+* Difference between Standard Scaler and minMax scaler. The former has large loss around 2.7 and it hardly decreases in the first 30 epochs. The latter gives smaller loss 
+* add dropout layer to solve overfitting problem.
+* refer to keras.loss, we can identify that binary_crossentropy is better than mae, since the latter is better for regression. When using binary_crossentropy, we should normalize the data in the range [0,1], that is MinMaxScaler insead of standard scaler.
 
 ## SMOTE synthetic minority oversampling 
 
