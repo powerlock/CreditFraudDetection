@@ -28,6 +28,7 @@ In the second step, I will explore GAN simulation data as live transaction data 
 * Difference between Standard Scaler and minMax scaler. The former has large loss around 2.7 and it hardly decreases in the first 30 epochs. The latter gives smaller loss 
 * add dropout layer to solve overfitting problem.
 * refer to keras.loss, we can identify that binary_crossentropy is better than mae, since the latter is better for regression. When using binary_crossentropy, we should normalize the data in the range [0,1], that is MinMaxScaler insead of standard scaler.
+* outliers in the data will cause train the test data huge difference.
 
 ## SMOTE synthetic minority oversampling 
 
