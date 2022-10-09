@@ -3,3 +3,5 @@ Data/creditcard.csv
 .ipynb_checkpoints/
 Data/.DS_Store
 logs
+model
+nb/mlruns
