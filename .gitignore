@@ -5,3 +5,5 @@ Data/.DS_Store
 logs
 model
 nb/mlruns
+Data/creditcard.pkl
+Data/MachineLearningSummary.csv
