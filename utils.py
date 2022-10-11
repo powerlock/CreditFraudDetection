@@ -8,7 +8,7 @@ def stats(modelname, predictions, labels):
   precision = metrics.precision_score(labels, predictions)
   recall = metrics.recall_score(labels, predictions)
   f1_score = metrics.f1_score(labels, predictions)
-  if modelname in ['deepLearninig']:
+  if modelname not in ['logistic regression']:
     auc = None
   else:
     auc = metrics.auc(labels, predictions)
