@@ -30,6 +30,12 @@ In the second step, I will explore GAN simulation data as live transaction data 
 * refer to keras.loss, we can identify that binary_crossentropy is better than mae, since the latter is better for regression. When using binary_crossentropy, we should normalize the data in the range [0,1], that is MinMaxScaler insead of standard scaler.
 * outliers in the data will cause train the test data huge difference.
 
+## Use deeplearning models
+* I have built about 12 models for the test with parameters ranging form ~8,000 to ~200,000.
+* Conv1D and Conv2D models were built and explored their performances.
+* Data imbalance was treated with class_weight.
+* Loss for the models is binary_loss. 
+
 ## SMOTE synthetic minority oversampling 
 
 
