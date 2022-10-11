@@ -38,4 +38,4 @@ In the second step, I will explore GAN simulation data as live transaction data 
 * Conv1D model shows the highest recall score, and f1_score.
 * Autoencoder shows the poorest performance overall.
 <p align="center">
-    <img src="/img/ModelSummary.png" alt="drawing" width="400"/>
+    <img src="img/ModelSummary.png" alt="drawing" width="400"/>
