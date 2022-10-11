@@ -1,9 +1,9 @@
-,Unnamed: 0,model,accuracy,precision,recall,f1_score,ROC
-0,0.0,"LogisticRegression(class_weight='balanced', max_iter=100000, random_state=42)",0.9777044345353042,0.0707964601769911,0.9056603773584906,0.1313269493844049,0.6384918801819095
-1,1.0,"SVC(class_weight={0: 1, 1: 100})",0.9984199992977776,0.5563380281690141,0.7452830188679245,0.6370967741935484,0.5000527648796961
-2,2.0,SVC(class_weight='balanced'),0.9968399985955548,0.3418803418803419,0.7547169811320755,0.4705882352941177,0.5000527648796961
-3,3.0,"RandomForestClassifier(class_weight='balanced', random_state=42)",0.999420666409185,0.9294117647058824,0.7452830188679245,0.8272251308900523,
-4,4.0,"XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
+,Unnamed: 0.1,Unnamed: 0,model,accuracy,precision,recall,f1_score,ROC
+0,0.0,0.0,"LogisticRegression(class_weight='balanced', max_iter=100000, random_state=42)",0.9777044345353042,0.0707964601769911,0.9056603773584906,0.1313269493844049,0.6384918801819095
+1,1.0,1.0,"SVC(class_weight={0: 1, 1: 100})",0.9984199992977776,0.5563380281690141,0.7452830188679245,0.6370967741935484,0.5000527648796961
+2,2.0,2.0,SVC(class_weight='balanced'),0.9968399985955548,0.3418803418803419,0.7547169811320755,0.4705882352941177,0.5000527648796961
+3,3.0,3.0,"RandomForestClassifier(class_weight='balanced', random_state=42)",0.999420666409185,0.9294117647058824,0.7452830188679245,0.8272251308900523,
+4,4.0,4.0,"XGBClassifier(base_score=0.5, booster='gbtree', callbacks=None,
               class_weight='balanced', colsample_bylevel=1, colsample_bynode=1,
               colsample_bytree=1, early_stopping_rounds=None,
               enable_categorical=False, eval_metric=None, gamma=0, gpu_id=-1,
@@ -14,4 +14,5 @@
               monotone_constraints='()', n_estimators=100, n_jobs=0,
               num_parallel_tree=1, predictor='auto', random_state=42,
               reg_alpha=0, ...)",0.9994908886626171,0.942528735632184,0.7735849056603774,0.8497409326424871,
-0,,autoencoder,0.16723429654857624,0.0016004043126684635,0.76,0.0031940825418172647,141.0
+5,0.0,,autoencoder,0.1672342965485762,0.0016004043126684,0.76,0.0031940825418172,141.0
+0,,,deepLearninig,0.9991011488441336,0.752,0.7401574803149606,0.746031746031746,
