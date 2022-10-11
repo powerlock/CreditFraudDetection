@@ -36,6 +36,33 @@ In the second step, I will explore GAN simulation data as live transaction data 
 * Data imbalance was treated with class_weight.
 * Loss for the models is binary_loss. 
 
+Conv1D model summary shows the highest performance
+--------
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ reshape (Reshape)           (None, 30, 1)             0         
+                                                                 
+ conv1d (Conv1D)             (None, 30, 64)            128       
+                                                                 
+ conv1d_1 (Conv1D)           (None, 30, 64)            4160      
+                                                                 
+ max_pooling1d (MaxPooling1D  (None, 30, 64)           0         
+ )                                                               
+                                                                 
+ dropout (Dropout)           (None, 30, 64)            0         
+                                                                 
+ dense (Dense)               (None, 30, 64)            4160      
+                                                                 
+ flatten (Flatten)           (None, 1920)              0         
+                                                                 
+ dense_1 (Dense)             (None, 100)               192100    
+                                                                 
+ dense_2 (Dense)             (None, 1)                 101       
+                                                                 
+=================================================================
+Total params: 200,649
+
 ## SMOTE synthetic minority oversampling 
 
 
