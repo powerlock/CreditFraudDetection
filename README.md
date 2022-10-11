@@ -37,7 +37,6 @@ In the second step, I will explore GAN simulation data as live transaction data 
 * Loss for the models is binary_loss. 
 
 Conv1D model summary shows the highest performance
---------
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
