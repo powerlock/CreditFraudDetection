@@ -16,6 +16,9 @@ In the second step, I will explore GAN simulation data as live transaction data 
 * Explore correlation, remove highly correlated data.
 * Understand the data trend with visulization tools.
 
+## Synthetic data
+Data augmentation is beneficial for this particular project due to more fraud events introduction. Here, I will explore GAN method to synthesize data for the training.
+
 ## Select model with autoML for several classification models
 * Models include LightGBM','Xgboost','Random Forest','Neural Network'.
 * XGBoost showed the best performance among other classifications models.
@@ -71,3 +74,5 @@ Total params: 200,649
 * Autoencoder shows the poorest performance overall.
 <p align="center">
     <img src="img/ModelSummary.png" alt="drawing" width="400"/>
+
+
