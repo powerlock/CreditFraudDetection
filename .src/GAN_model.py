@@ -16,7 +16,7 @@ from keras.utils import to_categorical
 import numpy as np
 
 
-class():
+class DataGan():
     def __init__(self):
         self.img_rows = 28
         self.img_cols = 28
@@ -47,7 +47,7 @@ class():
         # Trains the generator to fool the discriminator
         self.combined = Model(z, validity)
         self.combined.compile(loss='binary_crossentropy', optimizer=optimizer)
-        
+
     def build_generator(self,latent_dim,data_dim):
 
             model = Sequential()
@@ -155,3 +155,28 @@ class():
                 f1_progress.append(f1)
                 
         return f1_progress
+if __name__== "__main__":
+    generator = DataGan.build_generator(latent_dim=10,data_dim=29)
+    discriminator = DataGan.build_discriminator(data_dim=29,num_classes=2)
+    optimizer = Adam(0.0002, 0.5)
+    discriminator.compile(loss=['binary_crossentropy', 'categorical_crossentropy'],
+    loss_weights=[0.5, 0.5],
+    optimizer=optimizer,
+    metrics=['accuracy'])
+
+    noise = Input(shape=(10,))
+    img = DataGan.generator(noise)
+    discriminator.trainable = False
+    valid,_ = discriminator(img)
+    combined = Model(noise , valid)
+    combined.compile(loss=['binary_crossentropy'],
+        optimizer=optimizer)
+
+
+    f1_p = DataGan.train(X_res,y_res,
+             X_test,y_test,
+             generator,discriminator,
+             combined,
+             num_classes=2,
+             epochs=5000, 
+             batch_size=128)
