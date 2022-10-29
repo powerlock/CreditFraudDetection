@@ -14,10 +14,15 @@ from keras import backend as K
 from keras import initializers
 from keras.utils import to_categorical
 import numpy as np
-
+from sklearn.model_selection import train_test_split
+import pandas as pd
+from sklearn.metrics import f1_score
 
 class DataGan():
-    def __init__(self):
+    def __init__(self,num_class,epoch,batch):
+        self.num_classes=num_class,
+        self.epochs=epoch, 
+        self.batch_size=batch
         self.img_rows = 28
         self.img_cols = 28
         self.channels = 1
@@ -48,7 +53,7 @@ class DataGan():
         self.combined = Model(z, validity)
         self.combined.compile(loss='binary_crossentropy', optimizer=optimizer)
 
-    def build_generator(self,latent_dim,data_dim):
+    def build_generator(self,latent_dim, data_dim):
 
             model = Sequential()
 
@@ -85,13 +90,7 @@ class DataGan():
         label = Dense(num_classes+1, activation="softmax")(features)
         return Model(img, [valid, label])
 
-    def train(self,X_train,y_train,
-            X_test,y_test,
-            generator,discriminator,
-            combined,
-            num_classes,
-            epochs, 
-            batch_size=128):
+    def train(self,X_train,y_train,X_test,y_test, generator,discriminator, combined, num_classes, epochs, batch_size=128):
         
         f1_progress = []
         half_batch = int(batch_size / 2)
@@ -156,27 +155,14 @@ class DataGan():
                 
         return f1_progress
 if __name__== "__main__":
-    generator = DataGan.build_generator(latent_dim=10,data_dim=29)
-    discriminator = DataGan.build_discriminator(data_dim=29,num_classes=2)
-    optimizer = Adam(0.0002, 0.5)
-    discriminator.compile(loss=['binary_crossentropy', 'categorical_crossentropy'],
-    loss_weights=[0.5, 0.5],
-    optimizer=optimizer,
-    metrics=['accuracy'])
+    #generator = DataGan.build_generator(latent_dim=10,data_dim=29)
+    #discriminator = DataGan.build_discriminator(data_dim=29,num_classes=2)
 
-    noise = Input(shape=(10,))
-    img = DataGan.generator(noise)
-    discriminator.trainable = False
-    valid,_ = discriminator(img)
-    combined = Model(noise , valid)
-    combined.compile(loss=['binary_crossentropy'],
-        optimizer=optimizer)
+    filepath = "../Data/creditcard.csv"
+    df = pd.read_csv(filepath)
+    X = df.drop(['Class'], axis=1)
+    y = df['Class']
 
-
-    f1_p = DataGan.train(X_res,y_res,
-             X_test,y_test,
-             generator,discriminator,
-             combined,
-             num_classes=2,
-             epochs=5000, 
-             batch_size=128)
+    X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state = 43)
+    f1_p = DataGan.train(X_train,y_train,
+             X_test,y_test)
